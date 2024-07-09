@@ -1,0 +1,38 @@
+/* Styling  */
+* {
+  margin: center;
+}
+
+body {
+  border:solid;
+  padding:center;
+  background-color: #41cf9d;
+  position:relative;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  color:  #18033f ; 
+}
+
+input{
+  display: flex; 
+  max-width: fit-content; 
+  margin: 10px;
+  background-color: rgb(241, 236, 236);
+  font-size: 50px;
+  }
+
+li {
+  color: rgb(34, 1, 17); 
+  font-size: 30px;
+  font-weight: bold;
+  font-family: cursive;
+}
+
+button {
+background-color: rgb(203, 247, 244);
+font-weight: bold;
+font-size: 20px;
+width: 10em;
+height: 3em; 
+}
+

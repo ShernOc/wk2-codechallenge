@@ -1,32 +1,34 @@
 // DOM Manipulation : Gets the  reference to the HTML document 
-// const input=document.getElementById("Shopping"); 
-// const buttonAdd= document.getElementById ("Add");
-// const buttonList= document.getElementById ("markedlist"); 
-// const buttonClear= document.getElementById ("listclear"); 
-// const container = document.querySelector('#container'); 
-
 const Forminput=document.getElementById("Shopping"); 
 const input= document.getElementById("boxInput");
-const buttonAdd= document.getElementById ("Add");
+const buttonAdd= document.getElementById("Add");
 const buttonList= document.getElementById ("markedlist"); 
-const buttonClear= document.getElementById ("listclear"); 
+const buttonClear= document.getElementById ("Clear"); 
 const container = document.querySelector('#container')
 
 // Created Array of the shopping list and provided the list of items and appended the list. 
+// let shoppingListArray = ["Sugar", "Salt" , "Rice","Maize flour"]
+let shoppingListArray= []
 
-const shoppingListArray = ["Blueband", "Sugar" , "Rice","Ugaliflour"]
-console.log(shoppingListArray.length)(); 
+// console.log(shoppingListArray.length)(); 
 
-// Appended / Added the list items 
-function listRendered(){
-  shoppingListArray.forEach((items)=>{const li = document.createElement('li')
-li.innerHTML = items
-container.appendChild(li)
+// Appended the list items 
+function renderItems(){
+  container.innerHTML = ""
+  shoppingListArray.forEach((item)=>{
+    const li = document.createElement('li')
+  const button = document.createElement('button')
+  button.textContent = 'Mark purchased'
+  button.addEventListener('click', function(){
+  li.style.backgroundColor = 'orange'
+})
+li.innerHTML = item
+li.appendChild(button)
+container.appendChild(li) // container= (ul)
   })
-// }
+}
 
-// Acess/Captures the User input : Used Event Listener. 
-//let Input = [];  Array that allows the user to store the data.
+//Newlist Rendered function allows the user to store new data in the array. 
 
 function NewlistRendered(){
 let inputtext = input.value.trim();
@@ -36,48 +38,20 @@ if (inputtext !== '' ){
   input.value = ''; }
 }
 
-function userInputItems(){
-document.getElementById("boxInput").addEventListener("Add");
-if (boxInput!== ''){
-  input.push(boxInput);
-  New(); 
-  boxInput.value = ''; }
-}
+ //Event handler
 
+ // const Addbutton = document.getElementById("boxInput").addEventListener("Add");
 
+ //  buttonAdd.addEventListener("click", inputtext); 
 
-// userInputItems !== ''? input.push(userInputItems): boxInput.value = ''; 
-// if (userInputItems!== ''){
-//   input.push(userInputItems);
-//   renderItems(); 
-//   boxInput.value = ''; 
-// }
+ document.addEventListener('DOMContentLoaded',()=>{
 
-
-//Event handler
-userInputItems.addEventListener("click", userInputItems); 
-
-
-/*
-- Access the user's input
-- Rerieve the value entered ( access the value of the input)
-- Add the value to the array ( shoppingListArray )
-- we call the render items function
-
-
-DOM Manipulation:
-Use JavaScript to dynamically add new items to the list container when the user clicks the "Add" button. (The new items do not have to be persisted once the page refreshes)
-Update the list item visually to indicate purchased items (e.g., strikethrough text, different background color).
-
-Event Handling:
-Attach event listeners to the "Add" button to capture user input and add items to the list.
-Attach event listeners to the list of items to allow users to mark them as purchased.
-Attach an event listener to the "Clear List" button to remove all items from the list.
+  buttonAdd.addEventListener("click",NewlistRendered); 
+  
+  buttonClear.addEventListener("click",function(){
+    shoppingListArray = []
+    renderItems()});
+  
  
+})
 
-Bonus Features:
-Allow users to edit existing list items.
-Implement persistence using local storage to save the list even after the page reloads.
-
-
-*/ 
