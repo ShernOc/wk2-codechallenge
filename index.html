@@ -3,25 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping Food Items 
+  <title>Shopping list
   </title>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-
     <div>
       <h1>Shopping List </h1>
     </div>
 
-<!-- input field   -->f
+<!-- User input field   -->
+<form id="Shopping">
+  <input type="text" name="Food items" id="boxInput" placeholder="Add items">
+  <button id="add">Add</button>
+</form>
+
 <div class="list">
-  <ul>
-  <input type="List" name="Shopping List" id="Shopping" placeholder="Shopinglist">
-  
+  <ul id="container">
+
   </ul>
 </div>
+
 <div>  <!-- buttons  -->
-  <button id="add">Add</button>
+ 
   <button id="markedlist">Mark Purchased</button>
   <button id="listclear">Clear List </button>
 </div>
