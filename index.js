@@ -1,10 +1,10 @@
-// DOM Manipulation : Gets the  reference to the HTML document 
-const Forminput=document.getElementById("Shopping"); 
+// DOM Manipulation : Acessing the Elements using java script to access the DOM.
+const heading1 = document.getElementsByTagName("h1");
 const input= document.getElementById("boxInput");
 const buttonAdd= document.getElementById("Add");
 const buttonList= document.getElementById ("markedlist"); 
 const buttonClear= document.getElementById ("Clear"); 
-const container = document.querySelector('#container')
+const container = document.querySelector('#container');
 
 // Created Array of the shopping list and provided the list of items and appended the list. 
 // let shoppingListArray = ["Sugar", "Salt" , "Rice","Maize flour"]
