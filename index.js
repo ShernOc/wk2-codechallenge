@@ -38,20 +38,23 @@ if (inputtext !== '' ){
   input.value = ''; }
 }
 
- //Event handler
+ //Event listerner // You click when Items are added, and Clear upon clicking. 
 
- // const Addbutton = document.getElementById("boxInput").addEventListener("Add");
+document.querySelector("input").addEventListener('mouseover',e=>console.log('add items')) ;
 
- //  buttonAdd.addEventListener("click", inputtext); 
+//Add button Event 
+ document.querySelector("#Add").addEventListener("click", NewlistRendered);
 
- document.addEventListener('DOMContentLoaded',()=>{
+//Clear button 
+ document.querySelector("#Clear").addEventListener("click", function(){ shoppingListArray = []
+ renderItems()});
 
-  buttonAdd.addEventListener("click",NewlistRendered); 
-  
-  buttonClear.addEventListener("click",function(){
-    shoppingListArray = []
-    renderItems()});
-  
- 
-})
+/* Option 2 
+  document.addEventListener('DOMContentLoaded',()=>{
+buttonAdd.addEventListener("click",NewlistRendered); 
 
+ buttonClear.addEventListener("click",function(){
+ shoppingListArray = []
+renderItems()});
+// })
+*/
