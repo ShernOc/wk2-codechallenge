@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping list
-  </title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <div>
-      <h1>Shopping List </h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping list</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <header id="mainheader">
+        <h1>Shopping List</h1>
+      </header>
+      <main id="main">
+        <!-- User input field   -->
+        <form action="#" id="inputform">
+          <label for="inputlist"><h2>Groceries List:</h2> </label>
+          <input type="text" name="list" id="inputlist" placeholder="Add items" required />
+          <input type="submit" name="submit" id="submitbtn" />
+        </form> 
+         <br />
+         <div id="newdiv">
+          <h2>To Buy Items</h2>
+         </div>
+         <div id="boughtdiv">
+          <h2>Bought Items</h2>
+
+         </div>
+         <!-- buttons 
+            <button id="add" class="button">Add</button>
+            <button id="delete" class="button">Clear</button> -->
+      </main>
     </div>
-    <!-- User input field   -->
-  <input type="text" name="Food items" id="boxInput" placeholder="Add items">
-  <br>
-  <button id="Add" >Add</button>
-  
-  <div class="list">
-  <ul id="container"> </ul>
-  </div>
-  <br>
-  <div>  <!-- buttons  -->
-  <button id="Clear">Clear List </button>
-  </div>
-  <script src="./index.js"></script>
-</body>
+    <script src="./index.js"></script>
+  </body>
 </html>

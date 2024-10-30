@@ -1,38 +1,73 @@
 /* Styling  */
 * {
-  margin: center;
+  margin:5px;
 }
 
 body {
-  border:solid;
-  padding:center;
-  background-color: #41cf9d;
+  border-radius: 5px;
+  padding:5px;
+  background-color: #d9d8df;
   position:relative;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 20px;
-  color:  #0502a8 ; 
+  color:  #151516 ; 
+  align-content: center;
+ 
+}
+#container{
+border: solid; 
+background: #41cf9d;
+border-radius: 5px; 
+
+
 }
 
 input{
-  display: flex; 
-  max-width: fit-content; 
-  margin: 10px;
-  background-color: rgb(241, 236, 236);
-  font-size: 50px;
+  display: block;
+  margin:5px;
+  background-color:#c0f0df;
+  border-radius: 5px;
+}
+
+#inputlist{
+  width:80%;
+  font-size:30px;
+  border-radius: 5px;
   }
+
+#submitbtn{
+  width:fit-content;
+  background-color:#c0f0df;
+  font-size:20px;
+}
 
 li {
   color: rgb(34, 1, 17); 
   font-size: 30px;
-  font-weight: bold;
-  font-family: cursive;
+  font-family: inherit;
+  align-content:center;
 }
 
-button {
-background-color: rgb(203, 247, 244);
-font-weight: bold;
-font-size: 20px;
-width: 10em;
-height: 3em; 
+.button{
+background-color:#c0f0df;
+font-size:20px;
+padding: 5px;
+border-radius: 5px;
 }
+
+#boughtdiv{
+  background:linear-gradient(rgb(227, 231, 227),rgb(187, 161, 161)
+  );
+  border-radius: 5px;
+
+}
+
+#newdiv{
+  background: linear-gradient(rgb(61, 187, 139),rgb(181, 173, 173));
+  border-radius: 5px;
+}
+
+
+
+
 

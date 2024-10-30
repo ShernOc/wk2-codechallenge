@@ -1,60 +1,108 @@
-// DOM Manipulation : Acessing the Elements using java script to access the DOM.
-const heading1 = document.getElementsByTagName("h1");
-const input= document.getElementById("boxInput");
-const buttonAdd= document.getElementById("Add");
-const buttonList= document.getElementById ("markedlist"); 
-const buttonClear= document.getElementById ("Clear"); 
-const container = document.querySelector('#container');
+/*array iteration, DOM manipulation, and event handling to create an interactive shopping list application.*/
 
-// Created Array of the shopping list and provided the list of items and appended the list. 
-// let shoppingListArray = ["Sugar", "Salt" , "Rice","Maize flour"]
-let shoppingListArray= []
+// DOM Manipulation event listener : 
+document.addEventListener('DOMContentLoaded', () => {
+  //1. Geeting the Elements using document.getElement by Id,TagName or ClassName 
 
-// console.log(shoppingListArray.length)(); 
+  // Created Array of the shopping list and provided the list of items and appended the list. 
+  const shoppingList = ["Sugar", "Salt", "Rice", "Maize flour"];
 
-// Appended the list items 
-function renderItems(){
-  container.innerHTML = ""
-  shoppingListArray.forEach((item)=>{
-    const li = document.createElement('li')
-  const button = document.createElement('button')
-  button.textContent = 'Mark purchased'
-  button.addEventListener('click', function(){
-  li.style.backgroundColor = 'orange'
+  //delete eventhandler. 
+  // The function will take/holds the bought list and store them in the done list; 
+  const handleDeletebtn = (e) => {
+    e.preventDefault();
+    e.target.parentNode.remove();
+    const boughtDiv = document.querySelector('#boughtdiv');
+    const newUl = document.createElement('ul');
+    const newli = document.createElement('li');
+    
+    // Removes the button from the list item. 
+    const removelist = e.target.parentNode;
+
+    // Where the list item will be stored. 
+    newli.textContent =removelist.textContent.replace("clear", "");//replacing "Done" with an empty string.
+
+    //append/added items 
+    newUl.appendChild(newli);
+    boughtDiv.appendChild(newUl);
+  }
+  handleDeletebtn;
+
+// Appended the shopping list: 
+function appendItems(list) {
+  list.forEach(item => {
+    const newDiv = document.querySelector('#newdiv')
+    const ul = document.createElement('ul')
+    const li = document.createElement('li');
+    li.textContent = item;
+   
+    //create a button that will be to delete the list. 
+    const buttonDelete = document.createElement("button");
+    buttonDelete.className = "button"
+
+    // the button will be named clear 
+    buttonDelete.textContent = "clear";
+
+    // create a handle event for the delete button 
+    buttonDelete.addEventListener('click', handleDeletebtn);
+
+    // append the button to the li element. 
+    li.appendChild(buttonDelete);
+    ul.appendChild(li); // append li to ul 
+    newDiv.appendChild(ul);
+  });
+
+}
+appendItems(shoppingList);
+
+// function that handles form event-listener 
+// takes in the new list and adds them to the existing list 
+function handleForm(addlist) {
+  // get the ul/li element
+  const ul = document.querySelector('ul')
+  const li2 = document.createElement('li');
+  li2.className = 'li2';
+
+  // //Pushes the new list to the array list 
+  // let inputInfo = inputlist.value.trim();
+  // let newaddlist=shoppingList.push(inputInfo);
+  // li2.textContent = inputInfo;
+
+  li2.textContent = addlist;
+
+
+  //create a button that will be used to delete the list item 
+  const buttonDelete = document.createElement("button");
+  buttonDelete.className = "button"
+
+  // set the button to clear 
+  buttonDelete.textContent = "clear";
+
+  // event listener to handle the delete action
+  buttonDelete.addEventListener('click', handleDeletebtn);
+
+  // append the elements 
+  li2.appendChild(buttonDelete);
+  ul.appendChild(li2);
+}
+handleForm;
+
+//form event listener 
+const inputform = document.getElementById("inputform");
+inputform.addEventListener('submit', (e) => {
+  e.preventDefault();
+  let inputInfo = e.target.inputlist.value.trim();
+  handleForm(inputInfo);
+  inputform.reset(); // reset the form
 })
-li.innerHTML = item
-li.appendChild(button)
-container.appendChild(li) // container= (ul)
-  })
-}
 
-//Newlist Rendered function allows the user to store new data in the array. 
+  // const button = document.createElement('button')
+  // button.textContent = 'Mark purchased'
+  // button.addEventListener('click', function(){
+  // li.style.backgroundColor = 'orange'
 
-function NewlistRendered(){
-let inputtext = input.value.trim();
-if (inputtext !== '' ){
-  shoppingListArray.push(inputtext); 
-  renderItems()
-  input.value = ''; }
-}
+  //Clear button 
+  //  document.querySelector("#Clear").addEventListener("click", function(){ shoppingList = [];
+  //  renderItems()});
 
- //Event listerner // You click when Items are added, and Clear upon clicking. 
-
-document.querySelector("input").addEventListener('mouseover',e=>console.log('add items')) ;
-
-//Add button Event 
- document.querySelector("#Add").addEventListener("click", NewlistRendered);
-
-//Clear button 
- document.querySelector("#Clear").addEventListener("click", function(){ shoppingListArray = []
- renderItems()});
-
-/* Option 2 
-  document.addEventListener('DOMContentLoaded',()=>{
-buttonAdd.addEventListener("click",NewlistRendered); 
-
- buttonClear.addEventListener("click",function(){
- shoppingListArray = []
-renderItems()});
-// })
-*/
+})
